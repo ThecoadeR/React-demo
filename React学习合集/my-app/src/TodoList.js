@@ -2,9 +2,11 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:48:36
- * @LastEditTime: 2020-03-12 22:58:13
+ * @LastEditTime: 2020-03-13 11:35:19
  */
+
 import React, { Component, Fragment } from 'react'
+import Animation from './animation'
 import TodoItem from './TodoItem'
 import axios from 'axios'
 import './style.css'
@@ -22,15 +24,15 @@ class TodoList extends Component {
     console.log(this.state)
   }
   componentDidMount() {
-    axios.get('/api/todolist')
-      .then(res => {
-        this.setState(() => {
-          return {
-            list: res.data
-          }
-        })
-      })
-      .catch(error => console.log(error))
+    // axios.get('/api/todolist')
+    //   .then(res => {
+    //     this.setState(() => {
+    //       return {
+    //         list: res.data
+    //       }
+    //     })
+    //   })
+    //   .catch(error => console.log(error))
   }
   render() {
     return (
@@ -45,6 +47,7 @@ class TodoList extends Component {
         <ul>
           {this.handleGetItem()}
         </ul>
+        <Animation></Animation>
       </Fragment>
     )
   }
