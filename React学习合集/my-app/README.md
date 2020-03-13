@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:02:17
- * @LastEditTime: 2020-03-12 22:12:22
+ * @LastEditTime: 2020-03-13 23:23:13
  -->
 ## React笔记
 
@@ -13,12 +13,17 @@
 * #### 当组件的props或者state改变以后 render就会重新执行
 * #### 当父组件的render被重新执行时 子组件也会被重新执行
 * #### React生命周期
-  * ##### componentWillMount 组件即将被挂载到页面的时刻自动执行
-  * ##### render 页面挂载
-  * ##### componentDidMounte 页面完成挂载以后
-  * ##### componentWillReceiveProps 组件有接收到props的时候 并且子组件存在于父组件中 才会执行
-  * ##### shouldComponentUpdate 组件页面被更新之前会被自动执行 返回值是个boolean true更新 false不更新
-  * ##### componentWillUpdate 组件被更新之前会自动执行 在shouldComponentUpdate返回值为true才会执行 返回false不会执行
-  * ##### componentDidUpdate 组件更新完成之后会自动执行
-  * ##### componentWillUnmount 组件即将被销毁的时候会自动执行
-  
+  * componentWillMount 组件即将被挂载到页面的时刻自动执行
+  * render 页面挂载
+  * componentDidMounte 页面完成挂载以后
+  * componentWillReceiveProps 组件有接收到props的时候 并且子组件存在于父组件中 才会执行
+  * shouldComponentUpdate 组件页面被更新之前会被自动执行 返回值是个boolean true更新 false不更新
+  * componentWillUpdate 组件被更新之前会自动执行 在shouldComponentUpdate返回值为true才会执行 返回false不会执行
+  * componentDidUpdate 组件更新完成之后会自动执行
+  * componentWillUnmount 组件即将被销毁的时候会自动执行
+
+* #### Redux
+  * store 管理公用数据的地方 创建store的时候 需要把reducer传递给createStore ```createStore(reducer)```
+  * Action Creators 获取数据
+  * Reducers 首先 返回的必须是一个函数 这个函数有两个参数 state和action state是定义的数据(上一次操作以后的数据) action是组件内定义的行为 通过dispatch派发给给reducers 需要注意的是reducers可以接收state但是绝不可以修改state 所以需要深拷贝以后修改state 修改以后的newState会返回给store
+  * Redux工作流程: React Components 通过ActionCreators获取数据 同时Actions Creators通过dispatch派发到store store去Reducers查找修改的数据 Reducers同时返回修改以后的数据

@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-13 11:27:51
- * @LastEditTime: 2020-03-13 14:12:28
+ * @LastEditTime: 2020-03-13 14:30:57
  */
 import React, { Component, Fragment } from 'react'
 import { CSSTransition } from 'react-transition-group'
@@ -18,11 +18,13 @@ class Animation extends Component {
   }
   render() {
     return (
-      <div>
+      <Fragment>
+        <h3>CSS过渡动画</h3>
+        <hr></hr>
         <div className={this.state.show ? 'show' : 'hide'}>This is Animation Component</div>
         <button onClick={this.handleToggle}>Toggle</button>
         <h3>CSSTransition的使用</h3>
-        <br></br>
+        <hr></hr>
         <CSSTransition
           in={this.state.show}
           timeout={1000}
@@ -34,7 +36,7 @@ class Animation extends Component {
           <div>This is CSSTransition Component</div>
         </CSSTransition>
         <button onClick={this.handleChange}>Change</button>
-      </div>
+      </Fragment>
     )
   }
   handleToggle() {
