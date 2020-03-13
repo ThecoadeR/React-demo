@@ -45,3 +45,35 @@
     color: red
   }
 }
+
+/* CSSTranstion 会在入场动画的第一帧来加载这个属性 */
+.fade-enter, .fade-appear {
+  opacity: 0;
+}
+
+/* CSSTranstion 会在入场动画的执行开始 到结束的前一帧 自动加载这个属性 */
+.fade-enter-acitve, .fade-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+/* CSSTranstion 会在入场动画执行结束以后 自动加载这个属性 */
+.fade-enter-done {
+  opacity: 1;
+}
+
+/*CSSTranstion 会在出场动画的第一帧来加载这个属性 */
+.fade-exit {
+  opacity: 1;
+}
+
+/* CSSTranstion 会在出场动画的执行开始 到结束的前一帧 自动加载这个属性 */
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+/* CSSTranstion 会在出场动画执行结束以后 自动加载这个属性*/
+.fade-exit-done {
+  opacity: 0;
+}
