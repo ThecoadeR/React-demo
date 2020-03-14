@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:02:17
- * @LastEditTime: 2020-03-13 23:23:13
+ * @LastEditTime: 2020-03-14 13:03:44
  -->
 ## React笔记
 
@@ -27,3 +27,6 @@
   * Action Creators 获取数据
   * Reducers 首先 返回的必须是一个函数 这个函数有两个参数 state和action state是定义的数据(上一次操作以后的数据) action是组件内定义的行为 通过dispatch派发给给reducers 需要注意的是reducers可以接收state但是绝不可以修改state 所以需要深拷贝以后修改state 修改以后的newState会返回给store
   * Redux工作流程: React Components 通过ActionCreators获取数据 同时Actions Creators通过dispatch派发到store store去Reducers查找修改的数据 Reducers同时返回修改以后的数据
+  * store必须是唯一的
+  * 只有store可以修改数据 reducers其实只是存放修改方法 并把newState返回给store 由store自己替换
+  * reducer必须是个纯函数 指的是给固定的输入 就一定会有固定的输出 而且不会有副作用 参考reducers.js
