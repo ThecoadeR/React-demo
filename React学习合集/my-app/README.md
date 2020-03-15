@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:02:17
- * @LastEditTime: 2020-03-14 13:03:44
+ * @LastEditTime: 2020-03-15 13:26:22
  -->
 ## React笔记
 
@@ -30,3 +30,5 @@
   * store必须是唯一的
   * 只有store可以修改数据 reducers其实只是存放修改方法 并把newState返回给store 由store自己替换
   * reducer必须是个纯函数 指的是给固定的输入 就一定会有固定的输出 而且不会有副作用 参考reducers.js
+  
+* #### UI组件 -> 渲染 容器组件 -> 逻辑

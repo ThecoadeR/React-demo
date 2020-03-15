@@ -2,15 +2,16 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:48:36
- * @LastEditTime: 2020-03-14 12:59:57
+ * @LastEditTime: 2020-03-15 13:43:56
  */
 
 import React, { Component, Fragment } from 'react'
-import { Input, Button, List } from 'antd'
-import { getInputChangeAction, addTodoItemAction, DeleteTodoItemAction } from './store/actionCreators'
+import { getInputChangeAction, addTodoItemAction, DeleteTodoItemAction, originTodoItem } from './store/actionCreators'
+import TodoListUI from './TodoListUI'
 import Animation from './animation'
 import store from './store/index'
 import axios from 'axios'
+import { message } from 'antd'
 import 'antd/dist/antd.css'
 class TodoList extends Component {
   constructor(props) {
@@ -22,40 +23,27 @@ class TodoList extends Component {
     this.state = store.getState()
     store.subscribe(this.handleStoreChange) // 订阅组件变化 
   }
+
   componentDidMount() {
-    axios.get('/api/todolist')
-      .then(res => {
-        this.setState(() => {
-          return {
-            list: res.data
-          }
-        })
-      })
-      .catch(error => console.log(error))
+    axios.get('/api/todolist').then((res) => {
+      if(res.data.code === 200) {
+        const getOriginData = originTodoItem(res.data.list)
+        store.dispatch(getOriginData)
+      }
+    }).catch((error) => {
+      console.log(error)
+      message.error('服务器走丢了', 1)
+    })
   }
   render() {
     return (
       <Fragment>
-        <Input
-          value={this.state.inputValue}
-          style={{width: 300, marginTop: 10, marginLeft: 10}} 
-          placeholder="Todo info" 
-          onChange={this.handleValueChange}
-        />
-        <Button
-          style={{marginLeft: 10}}
-          type="primary"
-          onClick={this.handleAdd}
-        >提交</Button>
-        <List
-          style={{marginLeft: 10, marginTop: 10, width: 300}}
-          bordered
-          dataSource={this.state.list}
-          renderItem={(item, index) => (
-            <List.Item onClick={() => {this.handleDelete(index)}}>
-              {item} - {index}
-            </List.Item>
-          )}
+        <TodoListUI 
+          inputValue={this.state.inputValue}
+          handleValueChange={this.handleValueChange}
+          handleAdd={this.handleAdd}
+          list={this.state.list}
+          handleDelete={this.handleDelete}
         />
         <Animation></Animation>
       </Fragment>
