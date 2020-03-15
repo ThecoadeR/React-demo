@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:02:17
- * @LastEditTime: 2020-03-15 13:26:22
+ * @LastEditTime: 2020-03-15 15:02:44
  -->
 ## React笔记
 
@@ -32,3 +32,11 @@
   * reducer必须是个纯函数 指的是给固定的输入 就一定会有固定的输出 而且不会有副作用 参考reducers.js
   
 * #### UI组件 -> 渲染 容器组件 -> 逻辑
+
+* #### 无状态组件 -> 仅仅返回一个函数 性能更好 参考TodoListUI.js
+
+* #### 使用Redux-thunk (参考actionCreators.js)
+  * 1. npm install
+  * 2. 在actionCreators.js中创建新的action 这个action是一个函数 同时可以接收dispatch参数
+  * 3. 同时需要在定义好的action中 再根据对应业务逻辑 定义一个action 
+  * 4. 在需要执行异步逻辑的组件中 定义这个action 并且转发给store store会自动帮你执行定义好的action

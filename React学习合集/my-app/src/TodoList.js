@@ -2,16 +2,14 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:48:36
- * @LastEditTime: 2020-03-15 13:43:56
+ * @LastEditTime: 2020-03-15 14:47:00
  */
 
 import React, { Component, Fragment } from 'react'
-import { getInputChangeAction, addTodoItemAction, DeleteTodoItemAction, originTodoItem } from './store/actionCreators'
+import { getInputChangeAction, addTodoItemAction, DeleteTodoItemAction, originTodoItem, getOriginData } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 import Animation from './animation'
 import store from './store/index'
-import axios from 'axios'
-import { message } from 'antd'
 import 'antd/dist/antd.css'
 class TodoList extends Component {
   constructor(props) {
@@ -25,15 +23,8 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/todolist').then((res) => {
-      if(res.data.code === 200) {
-        const getOriginData = originTodoItem(res.data.list)
-        store.dispatch(getOriginData)
-      }
-    }).catch((error) => {
-      console.log(error)
-      message.error('服务器走丢了', 1)
-    })
+    const action = getOriginData()
+    store.dispatch(action)
   }
   render() {
     return (
