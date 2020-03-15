@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-15 13:27:38
- * @LastEditTime: 2020-03-15 15:06:06
+ * @LastEditTime: 2020-03-15 20:41:30
  */
 import React, { Fragment } from 'react'
 import { Input, Button, List } from 'antd'
@@ -26,7 +26,7 @@ const TodoListUI = (props) => {
         bordered
         dataSource={props.list}
         renderItem={(item, index) => (
-          <List.Item onClick={(index) => {props.handleDelete(index)}}>
+          <List.Item onClick={() => {props.handleDelete(index)}}>
             {item} - {index}
           </List.Item>
         )}

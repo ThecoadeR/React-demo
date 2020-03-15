@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-13 22:34:26
- * @LastEditTime: 2020-03-15 12:17:02
+ * @LastEditTime: 2020-03-15 20:41:45
  */
 
 /**
@@ -33,12 +33,12 @@ export default (state = defaultState, action) => {
   
   if (action.type === DELETE_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state))
+    console.log(action.value)
     newState.list.splice(action.value, 1)
     return newState
   }
 
   if (action.type === Origin_TODO_ITEM) {
-    console.log(action)
     const newState = JSON.parse(JSON.stringify(state))
     newState.list = action.value
     return newState

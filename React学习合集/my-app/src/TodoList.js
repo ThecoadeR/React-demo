@@ -2,15 +2,16 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:48:36
- * @LastEditTime: 2020-03-15 14:47:00
+ * @LastEditTime: 2020-03-15 20:40:09
  */
 
 import React, { Component, Fragment } from 'react'
-import { getInputChangeAction, addTodoItemAction, DeleteTodoItemAction, originTodoItem, getOriginData } from './store/actionCreators'
+import { getInputChangeAction, addTodoItemAction, DeleteTodoItemAction, getOriginData } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 import Animation from './animation'
 import store from './store/index'
 import 'antd/dist/antd.css'
+import axios from 'axios'
 class TodoList extends Component {
   constructor(props) {
     super(props)
@@ -25,6 +26,7 @@ class TodoList extends Component {
   componentDidMount() {
     const action = getOriginData()
     store.dispatch(action)
+    console.log(action)
   }
   render() {
     return (
@@ -58,7 +60,7 @@ class TodoList extends Component {
     //   type: ADD_TODO_ITEM,
     //   value: this.state.inputValue
     // }
-    const action = addTodoItemAction(this.state.inputValue)
+  const action = addTodoItemAction(this.state.inputValue)
     store.dispatch(action)
   }
   handleDelete(index) {
