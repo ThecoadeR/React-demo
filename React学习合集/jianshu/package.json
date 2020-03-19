@@ -19,7 +19,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "npm run commit"
+      "pre-commit": "npm run commit"
     }  
   },
   "eslintConfig": {
