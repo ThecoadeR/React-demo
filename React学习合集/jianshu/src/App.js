@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+/*
+ * @Descripttion: 注释
+ * @Author: 朱海华
+ * @Date: 2020-03-19 22:00:00
+ * @LastEditTime: 2020-03-19 22:42:07
+ */
+import React, { Fragment } from 'react';
+import { GlobalStyle } from './style'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Fragment>
+      <GlobalStyle></GlobalStyle>
+      <div className="App">
+        hello word
+      </div>
+    </Fragment>
+  )
 }
 
 export default App;
