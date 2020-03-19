@@ -17,6 +17,11 @@
     "eject": "react-scripts eject",
     "commit": "git-cz"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run commit"
+    }  
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -34,6 +39,7 @@
   },
   "devDependencies": {
     "git-cz": "^4.3.1",
+    "husky": "^4.2.3",
     "styled-components": "^5.0.1"
   }
 }

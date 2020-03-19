@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-11 14:48:36
- * @LastEditTime: 2020-03-15 20:40:09
+ * @LastEditTime: 2020-03-16 14:29:33
  */
 
 import React, { Component, Fragment } from 'react'
@@ -38,7 +38,7 @@ class TodoList extends Component {
           list={this.state.list}
           handleDelete={this.handleDelete}
         />
-        <Animation></Animation>
+        {/* <Animation></Animation> */}
       </Fragment>
     )
   }
