@@ -2,11 +2,21 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:33:54
- * @LastEditTime: 2020-03-29 16:48:51
+ * @LastEditTime: 2020-03-29 17:28:56
  */
 import React, { Component } from 'react'
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style'
+import { CSSTransition } from 'react-transition-group'
+
 class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      focused: false
+    }
+    this.handleGetFocus = this.handleGetFocus.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
+  }
   render() {
     return (
       <HeaderWrapper>
@@ -19,8 +29,18 @@ class Header extends Component {
             <i className="iconfont">&#xe636;</i>
           </NavItem>
           <SearchWrapper>
-            <NavSearch></NavSearch>
-            <i className="iconfont">&#xe617;</i>
+            <CSSTransition
+              in={this.state.focused}
+              timeout={200}
+              classNames='slide'
+            >
+              <NavSearch 
+                className = { this.state.focused ? 'focused' : '' }
+                onFocus = { this.handleGetFocus }
+                onBlur = { this.handleBlur }
+              />
+            </CSSTransition>
+            <i className={ this.state.focused ? 'focused iconfont' : 'iconfont' }>&#xe617;</i>
           </SearchWrapper>
         </Nav>
         <Addition>
@@ -33,6 +53,16 @@ class Header extends Component {
           
       </HeaderWrapper>
     )
+  }
+  handleGetFocus() {
+    this.setState({
+      focused: true
+    })
+  }
+  handleBlur() {
+    this.setState({
+      focused: false
+    })
   }
 }
 

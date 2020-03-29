@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:37:06
- * @LastEditTime: 2020-03-29 16:49:39
+ * @LastEditTime: 2020-03-29 17:31:08
  */
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
@@ -53,6 +53,18 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   position: relative;
   float: left;
+  .slide-enter {
+    transition: all .2s ease-out
+  }
+  .slide-enter-active {
+    width: 240px;
+  }
+  .slide-exit {
+    transition: all .2s ease-out
+  }
+  .slide-exit-active {
+    width: 160px;
+  }
   .iconfont {
     position: absolute;
     right: 5px;
@@ -61,6 +73,9 @@ export const SearchWrapper = styled.div`
     line-height: 30px;
     text-align: center;
     border-radius: 15px;
+    &.focused {
+      background: #999;
+    }
   }
 `
 
@@ -69,7 +84,7 @@ export  const NavSearch = styled.input.attrs({
 })`
   margin-left: 20px;
   margin-top: 9px;
-  padding: 0 20px;
+  padding: 0 30px 0 20px;
   width: 160px;
   height: 38px;
   border: none;
@@ -77,9 +92,13 @@ export  const NavSearch = styled.input.attrs({
   outline: none;
   font-size: 14px;
   background-color: #eee;
+  color: #666;
   box-sizing: border-box;
   &::placeholder {
     color: #999;
+  }
+  &.focused {
+    width: 240px;
   }
 `
 
