@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:37:06
- * @LastEditTime: 2020-03-29 17:31:08
+ * @LastEditTime: 2020-03-29 17:35:52
  */
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
@@ -53,18 +53,6 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   position: relative;
   float: left;
-  .slide-enter {
-    transition: all .2s ease-out
-  }
-  .slide-enter-active {
-    width: 240px;
-  }
-  .slide-exit {
-    transition: all .2s ease-out
-  }
-  .slide-exit-active {
-    width: 160px;
-  }
   .iconfont {
     position: absolute;
     right: 5px;
@@ -99,6 +87,18 @@ export  const NavSearch = styled.input.attrs({
   }
   &.focused {
     width: 240px;
+  }
+  &.slide-enter {
+    transition: all .2s ease-out
+  }
+  &.slide-enter-active {
+    width: 240px;
+  }
+  &.slide-exit {
+    transition: all .2s ease-out
+  }
+  &.slide-exit-active {
+    width: 160px;
   }
 `
 

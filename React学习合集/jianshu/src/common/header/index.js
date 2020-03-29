@@ -2,24 +2,16 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:33:54
- * @LastEditTime: 2020-03-29 17:28:56
+ * @LastEditTime: 2020-03-29 17:54:58
  */
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style'
 import { CSSTransition } from 'react-transition-group'
 
-class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      focused: false
-    }
-    this.handleGetFocus = this.handleGetFocus.bind(this)
-    this.handleBlur = this.handleBlur.bind(this)
-  }
-  render() {
-    return (
-      <HeaderWrapper>
+const Header = (props) => {
+  return (
+    <HeaderWrapper>
         <Logo href='/' />
         <Nav>
           <NavItem className="left active">首页</NavItem>
@@ -30,17 +22,17 @@ class Header extends Component {
           </NavItem>
           <SearchWrapper>
             <CSSTransition
-              in={this.state.focused}
+              in={ props.focused }
               timeout={200}
               classNames='slide'
             >
               <NavSearch 
-                className = { this.state.focused ? 'focused' : '' }
-                onFocus = { this.handleGetFocus }
-                onBlur = { this.handleBlur }
+                className = { props.focused ? 'focused' : '' }
+                onFocus = { props.handleGetFocus }
+                onBlur = { props.handleBlur }
               />
             </CSSTransition>
-            <i className={ this.state.focused ? 'focused iconfont' : 'iconfont' }>&#xe617;</i>
+            <i className={ props.focused ? 'focused iconfont' : 'iconfont' }>&#xe617;</i>
           </SearchWrapper>
         </Nav>
         <Addition>
@@ -50,20 +42,30 @@ class Header extends Component {
           </Button>
           <Button className="register">注册</Button>
         </Addition>
-          
       </HeaderWrapper>
-    )
-  }
-  handleGetFocus() {
-    this.setState({
-      focused: true
-    })
-  }
-  handleBlur() {
-    this.setState({
-      focused: false
-    })
+  )
+}
+const mapStateToProps = (state) => {
+  return {
+    focused: state.focused
   }
 }
 
-export default Header
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleGetFocus() {
+      const action = {
+        type: 'search_focus'
+      }
+      dispatch(action)
+    },
+    handleBlur() {
+      const action = {
+        type: 'search_blur'
+      }
+      dispatch(action)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
