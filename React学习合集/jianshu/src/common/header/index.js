@@ -2,11 +2,12 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:33:54
- * @LastEditTime: 2020-03-29 20:05:03
+ * @LastEditTime: 2020-03-29 20:24:27
  */
 import React from 'react'
 import { connect } from 'react-redux'
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style'
+import * as actionCreator  from './store/actionCreators'
 import { CSSTransition } from 'react-transition-group'
 
 const Header = (props) => {
@@ -47,23 +48,17 @@ const Header = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.focused
+    focused: state.header.get('focused')
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleGetFocus() {
-      const action = {
-        type: 'search_focus'
-      }
-      dispatch(action)
+      dispatch(actionCreator.searchFocus())
     },
     handleBlur() {
-      const action = {
-        type: 'search_blur'
-      }
-      dispatch(action)
+      dispatch(actionCreator.searchBlur())
     }
   }
 }
