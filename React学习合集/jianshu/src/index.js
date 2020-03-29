@@ -2,12 +2,11 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-19 22:00:00
- * @LastEditTime: 2020-03-19 22:10:38
+ * @LastEditTime: 2020-03-29 16:34:20
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './style.js';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

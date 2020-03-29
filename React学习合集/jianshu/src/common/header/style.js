@@ -2,10 +2,10 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:37:06
- * @LastEditTime: 2020-03-29 15:13:25
+ * @LastEditTime: 2020-03-29 16:49:39
  */
 import styled from 'styled-components'
-import logoPic from '../statics/logo.png'
+import logoPic from '../../statics/logo.png'
 
 export const HeaderWrapper = styled.div`
   position: relative;
@@ -50,6 +50,19 @@ export const NavItem = styled.div`
     color: #ea6f5a
   }
 `
+export const SearchWrapper = styled.div`
+  position: relative;
+  float: left;
+  .iconfont {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+  }
+`
 
 export  const NavSearch = styled.input.attrs({
   placeholder: '搜索'
@@ -73,7 +86,7 @@ export  const NavSearch = styled.input.attrs({
 export const Addition = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  right: 50px;
   height: 58px;
 `
 
