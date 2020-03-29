@@ -2,25 +2,16 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 17:39:29
- * @LastEditTime: 2020-03-29 17:52:15
+ * @LastEditTime: 2020-03-29 20:06:03
  */
+import { combineReducers } from 'redux'
+import headerReducer from '../common/header/store/reducer'
 
-const defaultState = {
-  focused: false
-}
-
-const reducer = (state = defaultState, action) => {
-  if (action.type === 'search_focus') {
-    return {
-      focused: true
-    }
-  }
-  if (action.type === 'search_blur') {
-    return {
-      focused: false
-    }
-  }
-  return state;
-}
+/**
+ * 通过combineReducers来整合多个reducer
+ */
+const reducer =  combineReducers({
+  header: headerReducer
+})
 
 export default reducer

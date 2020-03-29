@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:37:06
- * @LastEditTime: 2020-03-29 17:35:52
+ * @LastEditTime: 2020-03-29 18:01:15
  */
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
@@ -16,7 +16,7 @@ export const HeaderWrapper = styled.div`
 export const Logo = styled.a`
   position: absolute;
   top: 0;
-  left: 0;
+  left: 150px;
   display: inline-block;
   width: 100px;
   height: 58px;
@@ -105,7 +105,7 @@ export  const NavSearch = styled.input.attrs({
 export const Addition = styled.div`
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 150px;
   height: 58px;
 `
 

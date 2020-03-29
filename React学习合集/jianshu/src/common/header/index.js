@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:33:54
- * @LastEditTime: 2020-03-29 17:54:58
+ * @LastEditTime: 2020-03-29 20:05:03
  */
 import React from 'react'
 import { connect } from 'react-redux'
@@ -47,7 +47,7 @@ const Header = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    focused: state.focused
+    focused: state.header.focused
   }
 }
 
