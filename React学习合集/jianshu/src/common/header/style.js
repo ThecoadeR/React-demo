@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:37:06
- * @LastEditTime: 2020-03-29 18:01:15
+ * @LastEditTime: 2020-03-30 22:21:58
  */
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
@@ -67,6 +67,43 @@ export const SearchWrapper = styled.div`
   }
 `
 
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 58px;
+  padding: 0 20px;
+  width: 240px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2)
+`
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+  cursor: pointer;
+`
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
+`
 export  const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
@@ -101,7 +138,6 @@ export  const NavSearch = styled.input.attrs({
     width: 160px;
   }
 `
-
 export const Addition = styled.div`
   position: absolute;
   top: 0;
