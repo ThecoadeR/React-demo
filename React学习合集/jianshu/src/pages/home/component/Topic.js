@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 14:30:29
- * @LastEditTime: 2020-04-11 15:24:35
+ * @LastEditTime: 2020-04-11 16:19:38
  */
 import React, { Component } from 'react'
 import { TopicWrapper, TopicItem } from '../style'
@@ -14,8 +14,8 @@ class Topic extends Component {
         {
           this.props.topicList.map((item) => {
             return (
-              <TopicItem key={item.id}>
-                <img className="item-img" src={item.get('imgUrl')}></img>
+              <TopicItem key={item.get('id')}>
+                <img className="item-img" src={item.get('imgUrl')} alt=''></img>
                 {item.get('title')}
               </TopicItem>
             )
