@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 14:33:54
- * @LastEditTime: 2020-03-30 23:04:32
+ * @LastEditTime: 2020-03-31 22:21:37
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -93,14 +93,15 @@ const mapStateToProps = (state) => {
   return {
     focused: state.header.get('focused'),
     hotList: state.header.get('hotList')
+    // page: state.header.get('page')
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleGetFocus() {
+      dispatch(actionCreator.searchFocus())      
       dispatch(actionCreator.getHotList())
-      dispatch(actionCreator.searchFocus())
     },
     handleBlur() {
       dispatch(actionCreator.searchBlur())
