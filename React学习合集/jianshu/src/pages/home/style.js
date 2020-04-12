@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 14:21:41
- * @LastEditTime: 2020-04-12 14:45:38
+ * @LastEditTime: 2020-04-12 15:32:37
  */
 import styled from 'styled-components'
 
@@ -68,9 +68,6 @@ export const ListItem = styled.div`
     width: 150px;
     height: 100px;
     border-radius: 10px;
-  }
-  :last-child {
-    margin-bottom: 100px;
   }
 `
 

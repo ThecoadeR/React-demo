@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 14:17:03
- * @LastEditTime: 2020-04-12 15:02:12
+ * @LastEditTime: 2020-04-12 15:07:32
  */
 import React, { Component } from 'react'
 import List from './component/List'
@@ -64,7 +64,6 @@ const mapDispatch = (dispatch) => ({
       const action = actionCreator.hiddenScroll()
       dispatch(action)
     }
-    console.log(document.documentElement.scrollTop)
   }
 })
 
