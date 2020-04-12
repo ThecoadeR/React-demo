@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-03-29 20:01:58
- * @LastEditTime: 2020-04-11 17:58:34
+ * @LastEditTime: 2020-04-12 14:32:17
  */
 import { fromJS } from 'immutable'
 import * as actionTypes from './actionTypes'
@@ -19,6 +19,9 @@ const reducer = (state = defaultState, action) => {
       articleList: fromJS(action.articleList),
       recommendList: fromJS(action.recommendList)
     })
+  }
+  if (action.type === actionTypes.ADD_HOME_LIST) {
+    return state.set('articleList', state.get('articleList').concat(action.articleList))
   }
   return state;
 }

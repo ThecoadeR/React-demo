@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 14:21:41
- * @LastEditTime: 2020-04-11 17:00:49
+ * @LastEditTime: 2020-04-12 14:08:43
  */
 import styled from 'styled-components'
 
@@ -87,6 +87,17 @@ export const ListInfo = styled.div`
     line-height: 24px;
     color: #999
   }
+`
+export const LoadMore = styled.div`
+  margin: 30px 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #a5a5a5;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
 `
 
 export const RecommendWrapper = styled.div`

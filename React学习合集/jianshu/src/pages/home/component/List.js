@@ -2,14 +2,15 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 14:30:36
- * @LastEditTime: 2020-04-11 16:19:13
+ * @LastEditTime: 2020-04-12 14:12:51
  */
 import React, { Component, Fragment } from 'react'
-import { ListItem, ListInfo } from '../style'
+import { ListItem, ListInfo, LoadMore } from '../style'
 import { connect } from 'react-redux'
+import * as actionCreator from '../store/actionCreator'
 class List extends Component {
   render() {
-    const { articleList } = this.props
+    const { articleList, getMoreList } = this.props
     return (
       <Fragment>
         {
@@ -25,6 +26,7 @@ class List extends Component {
             )
           })
         }
+        <LoadMore onClick={getMoreList}>阅读更多</LoadMore>
       </Fragment>
     )
   }
@@ -34,4 +36,9 @@ const mapState = (state) => {
     articleList: state.home.get('articleList')
   }
 }
-export default connect(mapState, null)(List)
+const mapDispatch = (dispatch) => ({
+  getMoreList() {
+    dispatch(actionCreator.getMoreList())
+  }
+})
+export default connect(mapState, mapDispatch)(List)
