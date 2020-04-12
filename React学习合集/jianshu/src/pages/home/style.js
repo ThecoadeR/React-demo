@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 14:21:41
- * @LastEditTime: 2020-04-12 14:08:43
+ * @LastEditTime: 2020-04-12 14:45:38
  */
 import styled from 'styled-components'
 
@@ -121,4 +121,16 @@ export const WriterWrapper = styled.div`
   height: 300px;
   line-height: 300px;
   text-align: center;
+`
+
+export const BackTop = styled.div`
+  position: fixed;
+  right: 100px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 12px;
 `

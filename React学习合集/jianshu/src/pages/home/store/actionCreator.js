@@ -2,7 +2,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-04-11 17:49:23
- * @LastEditTime: 2020-04-12 14:30:59
+ * @LastEditTime: 2020-04-12 15:01:15
  */
 import axios from 'axios'
 import * as actionTypes from './actionTypes'
@@ -38,5 +38,25 @@ export const getMoreList = () => {
       const action = addHomeList(result)
       dispatch(action)
     })
+  }
+}
+
+export const showScroll = () => {
+  return (dispatch) => {
+    const action = {
+      type: actionTypes.SHOW_SCROLL,
+      value: true
+    }
+    dispatch(action)
+  }
+}
+
+export const hiddenScroll = () => {
+  return (dispatch) => {
+    const action = {
+      type: actionTypes.HIDDEN_SCROLL,
+      value: false
+    }
+    dispatch(action)
   }
 }
